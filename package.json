@@ -1,20 +1,19 @@
 {
-  "name": "promise-while",
+  "name": "ya-promise-while",
   "version": "2.0.0",
-  "description": "While loops for asynchronous javascript",
+  "description": "YA-PROMISE-WHILE",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -R spec test"
+    "test": "nyc ava"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/stevenzeiler/promise-while.git"
   },
-  "author": "",
+  "author": "Ya Zhuang <zhuangya@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "should": "^11.1.0",
-    "bluebird": "^3.4.6",
-    "mocha": "^3.0.2"
+    "ava": "^0.16.0",
+    "nyc": "^8.3.0"
   }
 }
