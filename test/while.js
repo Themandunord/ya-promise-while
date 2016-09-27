@@ -1,5 +1,5 @@
 var Promise = require('bluebird');
-var promiseWhile = require(__dirname + '/../')(Promise);
+var promiseWhile = require(__dirname + '/../');
 var should = require('should');
 
 describe('Promise While', function () {
@@ -15,7 +15,7 @@ describe('Promise While', function () {
           setTimeout(function () {
             console.log('aye', i);
             resolve(i++);
-          }, 500)
+          }, 1)
         })
       })
       .then(function () {

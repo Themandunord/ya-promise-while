@@ -1,19 +1,14 @@
+'use strict';
 
-module.exports = function(Promise) {
-  return function(condition, action) {
-    var resolver = Promise.defer();
-
-    var loop = function() {
-      if (!condition()) return resolver.resolve();
-      return Promise.resolve(action())
-        .then(loop)
-        .catch(function (e) {
-          resolver.reject(e);
-        });
+module.exports = function promiseWhile (condition, action) {
+  return new Promise(function (resolve, reject) {
+    var loop = function () {
+      if (!condition()) {
+        return resolve();
+      }
+      return Promise.resolve(action()).then(loop).catch(reject);
     };
 
     process.nextTick(loop);
-
-    return resolver.promise;
-  };
-}
+  });
+};
